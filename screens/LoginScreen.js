@@ -14,6 +14,8 @@ import { useNavigation, useRoute } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import { toast } from 'sonner-native';
+import Logo from '../assets/logo.png';
+
 
 export default function LoginScreen() {
   const navigation = useNavigation();
@@ -73,7 +75,7 @@ export default function LoginScreen() {
           </TouchableOpacity>
           
           <View style={styles.headerContainer}>
-            <Text style={styles.logoText}>MediVault</Text>
+            <Image source={Logo} style={styles.logoImage} resizeMode="contain" />
             <Text style={styles.tagline}>Your Personal Health Record Locker</Text>
           </View>
           
@@ -197,55 +199,65 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#F0F0F0',
+    backgroundColor: '#ECEFF1',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 16,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.08,
+    shadowRadius: 2,
+    elevation: 2,
   },
   headerContainer: {
     alignItems: 'center',
     marginBottom: 40,
   },
   logoText: {
-    fontSize: 32,
-    fontWeight: 'bold',
+    fontSize: 34,
+    fontWeight: '800',
     color: '#4A80F0',
-    marginBottom: 8,
+    marginBottom: 4,
   },
   tagline: {
     fontSize: 14,
-    color: '#666',
+    color: '#777',
+    fontStyle: 'italic',
   },
   formContainer: {
     backgroundColor: 'white',
-    borderRadius: 16,
+    borderRadius: 20,
     padding: 24,
     shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 15,
-    elevation: 2,
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    elevation: 5,
   },
   welcomeText: {
     fontSize: 24,
-    fontWeight: 'bold',
-    color: '#333',
-    marginBottom: 8,
+    fontWeight: '700',
+    color: '#2D3748',
+    marginBottom: 4,
   },
   subtitle: {
-    fontSize: 14,
-    color: '#666',
-    marginBottom: 24,
+    fontSize: 15,
+    color: '#6B7280',
+    marginBottom: 20,
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#E0E0E0',
-    borderRadius: 12,
-    marginBottom: 16,
+    borderColor: '#E2E8F0',
+    borderRadius: 14,
     paddingHorizontal: 12,
     backgroundColor: '#FAFAFA',
+    marginBottom: 16,
+    shadowColor: '#000',
+    shadowOpacity: 0.04,
+    shadowOffset: { width: 0, height: 1 },
+    shadowRadius: 1,
   },
   inputIcon: {
     marginRight: 10,
@@ -253,7 +265,8 @@ const styles = StyleSheet.create({
   input: {
     flex: 1,
     height: 50,
-    color: '#333',
+    color: '#2D3748',
+    fontSize: 16,
   },
   eyeIcon: {
     padding: 8,
@@ -265,10 +278,11 @@ const styles = StyleSheet.create({
   forgotPasswordText: {
     color: '#4A80F0',
     fontSize: 14,
+    fontWeight: '500',
   },
   loginButton: {
     backgroundColor: '#4A80F0',
-    borderRadius: 12,
+    borderRadius: 14,
     height: 50,
     justifyContent: 'center',
     alignItems: 'center',
@@ -283,21 +297,23 @@ const styles = StyleSheet.create({
   loginButtonText: {
     color: 'white',
     fontSize: 16,
-    fontWeight: '600',
+    fontWeight: '700',
+    letterSpacing: 0.5,
   },
   orContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginVertical: 16,
+    marginVertical: 20,
   },
   divider: {
     flex: 1,
     height: 1,
-    backgroundColor: '#E0E0E0',
+    backgroundColor: '#E2E8F0',
   },
   orText: {
-    color: '#A0A0A0',
-    marginHorizontal: 16,
+    color: '#9CA3AF',
+    fontSize: 13,
+    marginHorizontal: 10,
   },
   socialButtonsContainer: {
     flexDirection: 'row',
@@ -308,26 +324,191 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
-    borderColor: '#E0E0E0',
-    borderRadius: 12,
+    borderColor: '#E2E8F0',
+    borderRadius: 14,
     padding: 12,
     width: '48%',
+    backgroundColor: '#fff',
+    shadowColor: '#000',
+    shadowOpacity: 0.02,
+    shadowRadius: 1,
+    shadowOffset: { width: 0, height: 1 },
   },
   socialButtonText: {
     marginLeft: 8,
-    color: '#333',
-    fontWeight: '500',
+    color: '#2D3748',
+    fontWeight: '600',
   },
   signupContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginTop: 24,
+    marginTop: 28,
   },
   signupText: {
-    color: '#666',
+    color: '#6B7280',
+    fontSize: 14,
   },
   signupLink: {
     color: '#4A80F0',
     fontWeight: '600',
+    fontSize: 14,
   },
+  logoImage: {
+  width: 200,
+  height: 160,
+},
+
 });
+
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#F8F9FA',
+//   },
+//   keyboardAvoidView: {
+//     flex: 1,
+//   },
+//   scrollContainer: {
+//     flexGrow: 1,
+//     padding: 24,
+//     justifyContent: 'center',
+//   },
+//   backButton: {
+//     width: 40,
+//     height: 40,
+//     borderRadius: 20,
+//     backgroundColor: '#F0F0F0',
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     marginBottom: 16,
+//   },
+//   headerContainer: {
+//     alignItems: 'center',
+//     marginBottom: 40,
+//   },
+//   logoText: {
+//     fontSize: 32,
+//     fontWeight: 'bold',
+//     color: '#4A80F0',
+//     marginBottom: 8,
+//   },
+//   tagline: {
+//     fontSize: 14,
+//     color: '#666',
+//   },
+//   formContainer: {
+//     backgroundColor: 'white',
+//     borderRadius: 16,
+//     padding: 24,
+//     shadowColor: '#000',
+//     shadowOffset: { width: 0, height: 2 },
+//     shadowOpacity: 0.05,
+//     shadowRadius: 15,
+//     elevation: 2,
+//   },
+//   welcomeText: {
+//     fontSize: 24,
+//     fontWeight: 'bold',
+//     color: '#333',
+//     marginBottom: 8,
+//   },
+//   subtitle: {
+//     fontSize: 14,
+//     color: '#666',
+//     marginBottom: 24,
+//   },
+//   inputContainer: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     borderWidth: 1,
+//     borderColor: '#E0E0E0',
+//     borderRadius: 12,
+//     marginBottom: 16,
+//     paddingHorizontal: 12,
+//     backgroundColor: '#FAFAFA',
+//   },
+//   inputIcon: {
+//     marginRight: 10,
+//   },
+//   input: {
+//     flex: 1,
+//     height: 50,
+//     color: '#333',
+//   },
+//   eyeIcon: {
+//     padding: 8,
+//   },
+//   forgotPassword: {
+//     alignSelf: 'flex-end',
+//     marginBottom: 24,
+//   },
+//   forgotPasswordText: {
+//     color: '#4A80F0',
+//     fontSize: 14,
+//   },
+//   loginButton: {
+//     backgroundColor: '#4A80F0',
+//     borderRadius: 12,
+//     height: 50,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     marginBottom: 16,
+//   },
+//   doctorButton: {
+//     backgroundColor: '#FF8C42',
+//   },
+//   adminButton: {
+//     backgroundColor: '#2ECC71',
+//   },
+//   loginButtonText: {
+//     color: 'white',
+//     fontSize: 16,
+//     fontWeight: '600',
+//   },
+//   orContainer: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     marginVertical: 16,
+//   },
+//   divider: {
+//     flex: 1,
+//     height: 1,
+//     backgroundColor: '#E0E0E0',
+//   },
+//   orText: {
+//     color: '#A0A0A0',
+//     marginHorizontal: 16,
+//   },
+//   socialButtonsContainer: {
+//     flexDirection: 'row',
+//     justifyContent: 'space-between',
+//   },
+//   socialButton: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     justifyContent: 'center',
+//     borderWidth: 1,
+//     borderColor: '#E0E0E0',
+//     borderRadius: 12,
+//     padding: 12,
+//     width: '48%',
+//   },
+//   socialButtonText: {
+//     marginLeft: 8,
+//     color: '#333',
+//     fontWeight: '500',
+//   },
+//   signupContainer: {
+//     flexDirection: 'row',
+//     justifyContent: 'center',
+//     marginTop: 24,
+//   },
+//   signupText: {
+//     color: '#666',
+//   },
+//   signupLink: {
+//     color: '#4A80F0',
+//     fontWeight: '600',
+//   },
+// });
