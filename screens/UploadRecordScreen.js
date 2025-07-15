@@ -112,7 +112,7 @@ export default function UploadRecordScreen() {
                   onChangeText={setRecordDate}
                 />
                 <TouchableOpacity style={styles.datePickerButton}>
-                  <Ionicons name="calendar" size={20} color="#4A80F0" />
+                  <Ionicons name="calendar" size={20} color="#17C3B2" />
                 </TouchableOpacity>
               </View>
             </View>
@@ -164,7 +164,7 @@ export default function UploadRecordScreen() {
               {!selectedFile ? (
                 <>
                   <View style={styles.uploadIconContainer}>
-                    <Ionicons name="cloud-upload" size={32} color="#4A80F0" />
+                    <Ionicons name="cloud-upload" size={32} color="#17C3B2" />
                   </View>
                   <Text style={styles.uploadText}>Tap to select a file</Text>
                   <Text style={styles.uploadSubtext}>PDF, JPG, PNG (Max 10MB)</Text>
@@ -172,7 +172,7 @@ export default function UploadRecordScreen() {
               ) : (
                 <View style={styles.selectedFileContainer}>
                   <View style={styles.fileIconContainer}>
-                    <Ionicons name="document" size={24} color="#4A80F0" />
+                    <Ionicons name="document" size={24} color="#17C3B2" />
                   </View>
                   <View style={styles.fileDetails}>
                     <Text style={styles.fileName}>{selectedFile.name}</Text>
@@ -399,7 +399,7 @@ const styles = StyleSheet.create({
     height: 120,
   },
   uploadButton: {
-    backgroundColor: '#4A80F0',
+    backgroundColor: '#17C3B2',
     borderRadius: 12,
     height: 56,
     justifyContent: 'center',

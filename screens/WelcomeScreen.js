@@ -109,27 +109,238 @@
 //   );
 // }
 
+
+
+
+// import React from 'react';
+// import { 
+//   View, 
+//   Text, 
+//   TouchableOpacity, 
+//   Image, 
+//   Dimensions,
+//   ScrollView,
+//   StyleSheet
+// } from 'react-native';
+// import { useNavigation } from '@react-navigation/native';
+// import { SafeAreaView } from 'react-native-safe-area-context';
+// import { Ionicons } from '@expo/vector-icons';
+// import Logo from '../assets/logo.png';
+
+
+// const { width } = Dimensions.get('window');
+
+// export default function WelcomeScreen() {
+//   const navigation = useNavigation();
+  
+//   return (
+//     <SafeAreaView style={styles.container}>
+//       <ScrollView contentContainerStyle={styles.scrollContent}>
+//         <View style={styles.header}>
+//           <Image source={Logo} style={styles.logoImage} resizeMode="contain" />
+//           <Text style={styles.subtitle}>Your Personal Health Record Locker</Text>
+//         </View>
+
+//         <View style={styles.imageContainer}>
+//           <Image 
+//             source={{ uri: 'https://api.a0.dev/assets/image?text=Health%20Records%20Management&aspect=1:1&seed=123' }} 
+//             style={styles.image}
+//             resizeMode="contain"
+//           />
+//         </View>
+
+//         <View style={styles.featureContainer}>
+//           <FeatureCard 
+//             icon="shield-checkmark" 
+//             iconBg="#E6F2FF"
+//             iconColor="#4A80F0"
+//             title="Secure Storage"
+//             description="Your health records are encrypted and securely stored"
+//           />
+//           <FeatureCard 
+//             icon="people" 
+//             iconBg="#FFF0E6"
+//             iconColor="#FF8C42"
+//             title="Role-Based Access"
+//             description="Control who can view your medical information"
+//           />
+//           <FeatureCard 
+//             icon="alert-circle" 
+//             iconBg="#E6FFF0"
+//             iconColor="#2ECC71"
+//             title="Emergency Access"
+//             description="Quick access to critical information in emergencies"
+//           />
+//         </View>
+
+//         <View style={styles.buttonContainer}>
+//           <RoleButton 
+//             title="Continue as Patient" 
+//             icon="person" 
+//             color="#4A80F0"
+//             onPress={() => navigation.navigate('Login', { userType: 'patient' })}
+//           />
+//           <RoleButton 
+//             title="Continue as Healthcare Provider" 
+//             icon="medkit" 
+//             color="#FF8C42"
+//             onPress={() => navigation.navigate('Login', { userType: 'doctor' })}
+//           />
+//           <RoleButton 
+//             title="Continue as Admin" 
+//             icon="settings" 
+//             color="#2ECC71"
+//             onPress={() => navigation.navigate('Login', { userType: 'admin' })}
+//           />
+//         </View>
+//       </ScrollView>
+//     </SafeAreaView>
+//   );
+// }
+
+// function FeatureCard({ icon, iconBg, iconColor, title, description }) {
+//   return (
+//     <View style={styles.featureCard}>
+//       <View style={[styles.iconWrapper, { backgroundColor: iconBg }]}>
+//         <Ionicons name={icon} size={24} color={iconColor} />
+//       </View>
+//       <View style={{ flex: 1 }}>
+//         <Text style={styles.featureTitle}>{title}</Text>
+//         <Text style={styles.featureDescription}>{description}</Text>
+//       </View>
+//     </View>
+//   );
+// }
+
+// function RoleButton({ title, icon, color, onPress }) {
+//   return (
+//     <TouchableOpacity 
+//       style={[styles.roleButton, { backgroundColor: color }]}
+//       onPress={onPress}
+//     >
+//       <Ionicons name={icon} size={24} color="white" style={{ marginRight: 8 }} />
+//       <Text style={styles.roleButtonText}>{title}</Text>
+//     </TouchableOpacity>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     backgroundColor: '#F8FAFC',
+//   },
+//   scrollContent: {
+//     flexGrow: 1,
+//     padding: 24,
+//     justifyContent: 'center',
+//   },
+//   header: {
+//     alignItems: 'center',
+//     marginBottom: 6,
+//   },
+//   title: {
+//     fontSize: 36,
+//     fontWeight: 'bold',
+//     color: '#4A80F0',
+//     marginBottom: 6,
+//   },
+//   subtitle: {
+//     fontSize: 16,
+//     color: '#666',
+//     textAlign: 'center',
+//   },
+//   imageContainer: {
+//     alignItems: 'center',
+//     marginBottom: 32,
+//   },
+//   image: {
+//     width: width * 0.7,
+//     height: width * 0.7,
+//     borderRadius: 20,
+//   },
+//   featureContainer: {
+//     marginBottom: 32,
+//   },
+//   featureCard: {
+//     flexDirection: 'row',
+//     alignItems: 'center',
+//     backgroundColor: 'white',
+//     padding: 16,
+//     borderRadius: 12,
+//     marginBottom: 16,
+//     elevation: 2,
+//     shadowColor: '#000',
+//     shadowOpacity: 0.1,
+//     shadowRadius: 4,
+//     shadowOffset: { width: 0, height: 2 },
+//   },
+//   iconWrapper: {
+//     width: 50,
+//     height: 50,
+//     borderRadius: 25,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     marginRight: 16,
+//   },
+//   featureTitle: {
+//     fontSize: 16,
+//     fontWeight: '600',
+//     color: '#333',
+//     marginBottom: 4,
+//   },
+//   featureDescription: {
+//     fontSize: 14,
+//     color: '#666',
+//   },
+//   buttonContainer: {
+//     marginBottom: 24,
+//   },
+//   roleButton: {
+//     flexDirection: 'row',
+//     borderRadius: 12,
+//     height: 56,
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     marginBottom: 16,
+//     shadowColor: '#000',
+//     shadowOpacity: 0.15,
+//     shadowRadius: 6,
+//     shadowOffset: { width: 0, height: 3 },
+//     elevation: 3,
+//   },
+//   roleButtonText: {
+//     color: 'white',
+//     fontSize: 16,
+//     fontWeight: '600',
+//   },
+//   logoImage: {
+//   width: 200,
+//   height: 160,
+// },
+// });
+
+
+
 import React from 'react';
-import { 
-  View, 
-  Text, 
-  TouchableOpacity, 
-  Image, 
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
   Dimensions,
   ScrollView,
-  StyleSheet
+  StyleSheet,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
 import Logo from '../assets/logo.png';
 
-
 const { width } = Dimensions.get('window');
 
 export default function WelcomeScreen() {
   const navigation = useNavigation();
-  
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContent}>
@@ -139,31 +350,33 @@ export default function WelcomeScreen() {
         </View>
 
         <View style={styles.imageContainer}>
-          <Image 
-            source={{ uri: 'https://api.a0.dev/assets/image?text=Health%20Records%20Management&aspect=1:1&seed=123' }} 
+          <Image
+            source={{
+              uri: 'https://api.a0.dev/assets/image?text=Health%20Records%20Management&aspect=1:1&seed=123',
+            }}
             style={styles.image}
             resizeMode="contain"
           />
         </View>
 
         <View style={styles.featureContainer}>
-          <FeatureCard 
-            icon="shield-checkmark" 
-            iconBg="#E6F2FF"
-            iconColor="#4A80F0"
+          <FeatureCard
+            icon="shield-checkmark"
+            iconBg="#D1F5F2"
+            iconColor="#17C3B2"
             title="Secure Storage"
             description="Your health records are encrypted and securely stored"
           />
-          <FeatureCard 
-            icon="people" 
-            iconBg="#FFF0E6"
-            iconColor="#FF8C42"
+          <FeatureCard
+            icon="people"
+            iconBg="#E0F0FF"
+            iconColor="#005D8F"
             title="Role-Based Access"
             description="Control who can view your medical information"
           />
-          <FeatureCard 
-            icon="alert-circle" 
-            iconBg="#E6FFF0"
+          <FeatureCard
+            icon="alert-circle"
+            iconBg="#F1FCF7"
             iconColor="#2ECC71"
             title="Emergency Access"
             description="Quick access to critical information in emergencies"
@@ -171,21 +384,21 @@ export default function WelcomeScreen() {
         </View>
 
         <View style={styles.buttonContainer}>
-          <RoleButton 
-            title="Continue as Patient" 
-            icon="person" 
-            color="#4A80F0"
+          <RoleButton
+            title="Continue as Patient"
+            icon="person"
+            color="#17C3B2"
             onPress={() => navigation.navigate('Login', { userType: 'patient' })}
           />
-          <RoleButton 
-            title="Continue as Healthcare Provider" 
-            icon="medkit" 
-            color="#FF8C42"
+          <RoleButton
+            title="Continue as Healthcare Provider"
+            icon="medkit"
+            color="#005D8F"
             onPress={() => navigation.navigate('Login', { userType: 'doctor' })}
           />
-          <RoleButton 
-            title="Continue as Admin" 
-            icon="settings" 
+          <RoleButton
+            title="Continue as Admin"
+            icon="settings"
             color="#2ECC71"
             onPress={() => navigation.navigate('Login', { userType: 'admin' })}
           />
@@ -211,10 +424,7 @@ function FeatureCard({ icon, iconBg, iconColor, title, description }) {
 
 function RoleButton({ title, icon, color, onPress }) {
   return (
-    <TouchableOpacity 
-      style={[styles.roleButton, { backgroundColor: color }]}
-      onPress={onPress}
-    >
+    <TouchableOpacity style={[styles.roleButton, { backgroundColor: color }]} onPress={onPress}>
       <Ionicons name={icon} size={24} color="white" style={{ marginRight: 8 }} />
       <Text style={styles.roleButtonText}>{title}</Text>
     </TouchableOpacity>
@@ -224,7 +434,7 @@ function RoleButton({ title, icon, color, onPress }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8FAFC',
+    backgroundColor: '#E6F7F9',
   },
   scrollContent: {
     flexGrow: 1,
@@ -233,13 +443,7 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: 6,
-  },
-  title: {
-    fontSize: 36,
-    fontWeight: 'bold',
-    color: '#4A80F0',
-    marginBottom: 6,
+    marginBottom: 12,
   },
   subtitle: {
     fontSize: 16,
@@ -265,7 +469,7 @@ const styles = StyleSheet.create({
     padding: 16,
     borderRadius: 12,
     marginBottom: 16,
-    elevation: 2,
+    elevation: 3,
     shadowColor: '#000',
     shadowOpacity: 0.1,
     shadowRadius: 4,
@@ -300,9 +504,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 16,
     shadowColor: '#000',
-    shadowOpacity: 0.15,
-    shadowRadius: 6,
-    shadowOffset: { width: 0, height: 3 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    shadowOffset: { width: 0, height: 2 },
     elevation: 3,
   },
   roleButtonText: {
@@ -311,7 +515,8 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   logoImage: {
-  width: 200,
-  height: 160,
-},
+    width: 180,
+    height: 140,
+    marginBottom: 8,
+  },
 });

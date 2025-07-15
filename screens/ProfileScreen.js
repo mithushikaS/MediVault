@@ -101,9 +101,9 @@ export default function ProfileScreen() {
   
   // Get primary color based on user type
   const getPrimaryColor = () => {
-    if (userType === 'doctor') return '#FF8C42';
+    if (userType === 'doctor') return '#005D8F';
     if (userType === 'admin') return '#2ECC71';
-    return '#4A80F0';
+    return '#17C3B2';
   };
   
   // Render medical information section for patients

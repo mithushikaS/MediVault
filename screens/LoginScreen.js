@@ -182,10 +182,12 @@ export default function LoginScreen() {
   );
 }
 
+// const styles = StyleSheet.create({
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F9FA',
+    backgroundColor: '#E6F7F9', // Soft teal-tinted background
   },
   keyboardAvoidView: {
     flex: 1,
@@ -199,7 +201,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#ECEFF1',
+    backgroundColor: '#DFF3F2',
     justifyContent: 'center',
     alignItems: 'center',
     marginBottom: 16,
@@ -213,19 +215,13 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginBottom: 40,
   },
-  logoText: {
-    fontSize: 34,
-    fontWeight: '800',
-    color: '#4A80F0',
-    marginBottom: 4,
-  },
   tagline: {
     fontSize: 14,
-    color: '#777',
+    color: '#6B7280',
     fontStyle: 'italic',
   },
   formContainer: {
-    backgroundColor: 'white',
+    backgroundColor: '#FFFFFF',
     borderRadius: 20,
     padding: 24,
     shadowColor: '#000',
@@ -237,7 +233,7 @@ const styles = StyleSheet.create({
   welcomeText: {
     fontSize: 24,
     fontWeight: '700',
-    color: '#2D3748',
+    color: '#1F2937',
     marginBottom: 4,
   },
   subtitle: {
@@ -249,13 +245,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: '#D1E5E7',
     borderRadius: 14,
     paddingHorizontal: 12,
-    backgroundColor: '#FAFAFA',
+    backgroundColor: '#F9FDFD',
     marginBottom: 16,
     shadowColor: '#000',
-    shadowOpacity: 0.04,
+    shadowOpacity: 0.03,
     shadowOffset: { width: 0, height: 1 },
     shadowRadius: 1,
   },
@@ -276,12 +272,12 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   forgotPasswordText: {
-    color: '#4A80F0',
+    color: '#17C3B2',
     fontSize: 14,
     fontWeight: '500',
   },
   loginButton: {
-    backgroundColor: '#4A80F0',
+    backgroundColor: '#17C3B2', // Patient default
     borderRadius: 14,
     height: 50,
     justifyContent: 'center',
@@ -289,7 +285,7 @@ const styles = StyleSheet.create({
     marginBottom: 16,
   },
   doctorButton: {
-    backgroundColor: '#FF8C42',
+    backgroundColor: '#005D8F',
   },
   adminButton: {
     backgroundColor: '#2ECC71',
@@ -308,7 +304,7 @@ const styles = StyleSheet.create({
   divider: {
     flex: 1,
     height: 1,
-    backgroundColor: '#E2E8F0',
+    backgroundColor: '#CCE3E6',
   },
   orText: {
     color: '#9CA3AF',
@@ -324,7 +320,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
-    borderColor: '#E2E8F0',
+    borderColor: '#D1E5E7',
     borderRadius: 14,
     padding: 12,
     width: '48%',
@@ -349,166 +345,14 @@ const styles = StyleSheet.create({
     fontSize: 14,
   },
   signupLink: {
-    color: '#4A80F0',
+    color: '#17C3B2',
     fontWeight: '600',
     fontSize: 14,
   },
   logoImage: {
-  width: 200,
-  height: 160,
-},
-
+    width: 200,
+    height: 160,
+  },
 });
 
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#F8F9FA',
-//   },
-//   keyboardAvoidView: {
-//     flex: 1,
-//   },
-//   scrollContainer: {
-//     flexGrow: 1,
-//     padding: 24,
-//     justifyContent: 'center',
-//   },
-//   backButton: {
-//     width: 40,
-//     height: 40,
-//     borderRadius: 20,
-//     backgroundColor: '#F0F0F0',
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     marginBottom: 16,
-//   },
-//   headerContainer: {
-//     alignItems: 'center',
-//     marginBottom: 40,
-//   },
-//   logoText: {
-//     fontSize: 32,
-//     fontWeight: 'bold',
-//     color: '#4A80F0',
-//     marginBottom: 8,
-//   },
-//   tagline: {
-//     fontSize: 14,
-//     color: '#666',
-//   },
-//   formContainer: {
-//     backgroundColor: 'white',
-//     borderRadius: 16,
-//     padding: 24,
-//     shadowColor: '#000',
-//     shadowOffset: { width: 0, height: 2 },
-//     shadowOpacity: 0.05,
-//     shadowRadius: 15,
-//     elevation: 2,
-//   },
-//   welcomeText: {
-//     fontSize: 24,
-//     fontWeight: 'bold',
-//     color: '#333',
-//     marginBottom: 8,
-//   },
-//   subtitle: {
-//     fontSize: 14,
-//     color: '#666',
-//     marginBottom: 24,
-//   },
-//   inputContainer: {
-//     flexDirection: 'row',
-//     alignItems: 'center',
-//     borderWidth: 1,
-//     borderColor: '#E0E0E0',
-//     borderRadius: 12,
-//     marginBottom: 16,
-//     paddingHorizontal: 12,
-//     backgroundColor: '#FAFAFA',
-//   },
-//   inputIcon: {
-//     marginRight: 10,
-//   },
-//   input: {
-//     flex: 1,
-//     height: 50,
-//     color: '#333',
-//   },
-//   eyeIcon: {
-//     padding: 8,
-//   },
-//   forgotPassword: {
-//     alignSelf: 'flex-end',
-//     marginBottom: 24,
-//   },
-//   forgotPasswordText: {
-//     color: '#4A80F0',
-//     fontSize: 14,
-//   },
-//   loginButton: {
-//     backgroundColor: '#4A80F0',
-//     borderRadius: 12,
-//     height: 50,
-//     justifyContent: 'center',
-//     alignItems: 'center',
-//     marginBottom: 16,
-//   },
-//   doctorButton: {
-//     backgroundColor: '#FF8C42',
-//   },
-//   adminButton: {
-//     backgroundColor: '#2ECC71',
-//   },
-//   loginButtonText: {
-//     color: 'white',
-//     fontSize: 16,
-//     fontWeight: '600',
-//   },
-//   orContainer: {
-//     flexDirection: 'row',
-//     alignItems: 'center',
-//     marginVertical: 16,
-//   },
-//   divider: {
-//     flex: 1,
-//     height: 1,
-//     backgroundColor: '#E0E0E0',
-//   },
-//   orText: {
-//     color: '#A0A0A0',
-//     marginHorizontal: 16,
-//   },
-//   socialButtonsContainer: {
-//     flexDirection: 'row',
-//     justifyContent: 'space-between',
-//   },
-//   socialButton: {
-//     flexDirection: 'row',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//     borderWidth: 1,
-//     borderColor: '#E0E0E0',
-//     borderRadius: 12,
-//     padding: 12,
-//     width: '48%',
-//   },
-//   socialButtonText: {
-//     marginLeft: 8,
-//     color: '#333',
-//     fontWeight: '500',
-//   },
-//   signupContainer: {
-//     flexDirection: 'row',
-//     justifyContent: 'center',
-//     marginTop: 24,
-//   },
-//   signupText: {
-//     color: '#666',
-//   },
-//   signupLink: {
-//     color: '#4A80F0',
-//     fontWeight: '600',
-//   },
-// });

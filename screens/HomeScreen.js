@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Image } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { useNavigation, useRoute } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Ionicons } from '@expo/vector-icons';
@@ -8,13 +8,11 @@ export default function HomeScreen() {
   const navigation = useNavigation();
   const route = useRoute();
   const { userType = 'patient' } = route.params || {};
-  
-  // State for user-specific content
+
   const [userName, setUserName] = useState('');
   const [welcomeMessage, setWelcomeMessage] = useState('');
-  
+
   useEffect(() => {
-    // Set user-specific content based on role
     if (userType === 'doctor') {
       setUserName('Dr. Smith');
       setWelcomeMessage('Healthcare Provider Dashboard');
@@ -26,228 +24,62 @@ export default function HomeScreen() {
       setWelcomeMessage('Welcome to');
     }
   }, [userType]);
-  
+
   const navigateTo = (screen) => {
     navigation.navigate(screen, { userType });
   };
 
-  // Render different quick access items based on user role
   const renderQuickAccessItems = () => {
     if (userType === 'doctor') {
       return (
         <>
-          <TouchableOpacity 
-            style={styles.quickAccessItem} 
-            onPress={() => navigateTo('PatientList')}
-          >
-            <View style={[styles.iconContainer, { backgroundColor: '#E6F2FF' }]}>
-              <Ionicons name="people" size={24} color="#4A80F0" />
-            </View>
-            <Text style={styles.quickAccessText}>Patient List</Text>
-          </TouchableOpacity>
-          
-          <TouchableOpacity 
-            style={styles.quickAccessItem}
-            onPress={() => navigateTo('Appointments')}
-          >
-            <View style={[styles.iconContainer, { backgroundColor: '#FFF0E6' }]}>
-              <Ionicons name="calendar" size={24} color="#FF8C42" />
-            </View>
-            <Text style={styles.quickAccessText}>Appointments</Text>
-          </TouchableOpacity>
-          
-          <TouchableOpacity 
-            style={styles.quickAccessItem}
-            onPress={() => navigateTo('UploadRecord')}
-          >
-            <View style={[styles.iconContainer, { backgroundColor: '#E6FFF0' }]}>
-              <Ionicons name="add-circle" size={24} color="#2ECC71" />
-            </View>
-            <Text style={styles.quickAccessText}>Add Records</Text>
-          </TouchableOpacity>
-          
-          <TouchableOpacity 
-            style={styles.quickAccessItem}
-            onPress={() => navigateTo('Messages')}
-          >
-            <View style={[styles.iconContainer, { backgroundColor: '#FFE6E6' }]}>
-              <Ionicons name="chatbubble" size={24} color="#E74C3C" />
-            </View>
-            <Text style={styles.quickAccessText}>Messages</Text>
-          </TouchableOpacity>
+          <QuickAccessItem icon="people" color="#4A80F0" bg="#E6F2FF" label="Patient List" onPress={() => navigateTo('PatientList')} />
+          <QuickAccessItem icon="calendar" color="#FF8C42" bg="#FFF0E6" label="Appointments" onPress={() => navigateTo('Appointments')} />
+          <QuickAccessItem icon="add-circle" color="#2ECC71" bg="#E6FFF0" label="Add Records" onPress={() => navigateTo('UploadRecord')} />
+          <QuickAccessItem icon="chatbubble" color="#E74C3C" bg="#FFE6E6" label="Messages" onPress={() => navigateTo('Messages')} />
         </>
       );
     } else if (userType === 'admin') {
       return (
         <>
-          <TouchableOpacity 
-            style={styles.quickAccessItem} 
-            onPress={() => navigateTo('UserManagement')}
-          >
-            <View style={[styles.iconContainer, { backgroundColor: '#E6F2FF' }]}>
-              <Ionicons name="people" size={24} color="#4A80F0" />
-            </View>
-            <Text style={styles.quickAccessText}>User Management</Text>
-          </TouchableOpacity>
-          
-          <TouchableOpacity 
-            style={styles.quickAccessItem}
-            onPress={() => navigateTo('SystemLogs')}
-          >
-            <View style={[styles.iconContainer, { backgroundColor: '#FFF0E6' }]}>
-              <Ionicons name="list" size={24} color="#FF8C42" />
-            </View>
-            <Text style={styles.quickAccessText}>System Logs</Text>
-          </TouchableOpacity>
-          
-          <TouchableOpacity 
-            style={styles.quickAccessItem}
-            onPress={() => navigateTo('Analytics')}
-          >
-            <View style={[styles.iconContainer, { backgroundColor: '#E6FFF0' }]}>
-              <Ionicons name="stats-chart" size={24} color="#2ECC71" />
-            </View>
-            <Text style={styles.quickAccessText}>Analytics</Text>
-          </TouchableOpacity>
-          
-          <TouchableOpacity 
-            style={styles.quickAccessItem}
-            onPress={() => navigateTo('Settings')}
-          >
-            <View style={[styles.iconContainer, { backgroundColor: '#FFE6E6' }]}>
-              <Ionicons name="settings" size={24} color="#E74C3C" />
-            </View>
-            <Text style={styles.quickAccessText}>System Settings</Text>
-          </TouchableOpacity>
+          <QuickAccessItem icon="people" color="#4A80F0" bg="#E6F2FF" label="User Management" onPress={() => navigateTo('UserManagement')} />
+          <QuickAccessItem icon="list" color="#FF8C42" bg="#FFF0E6" label="System Logs" onPress={() => navigateTo('SystemLogs')} />
+          <QuickAccessItem icon="stats-chart" color="#2ECC71" bg="#E6FFF0" label="Analytics" onPress={() => navigateTo('Analytics')} />
+          <QuickAccessItem icon="settings" color="#E74C3C" bg="#FFE6E6" label="System Settings" onPress={() => navigateTo('Settings')} />
         </>
       );
     } else {
-      // Default patient view
       return (
         <>
-          <TouchableOpacity 
-            style={styles.quickAccessItem} 
-            onPress={() => navigateTo('HealthRecords')}
-          >
-            <View style={[styles.iconContainer, { backgroundColor: '#E6F2FF' }]}>
-              <Ionicons name="document-text" size={24} color="#4A80F0" />
-            </View>
-            <Text style={styles.quickAccessText}>Health Records</Text>
-          </TouchableOpacity>
-          
-          <TouchableOpacity 
-            style={styles.quickAccessItem}
-            onPress={() => navigateTo('VisitHistory')}
-          >
-            <View style={[styles.iconContainer, { backgroundColor: '#FFF0E6' }]}>
-              <Ionicons name="calendar" size={24} color="#FF8C42" />
-            </View>
-            <Text style={styles.quickAccessText}>Visit History</Text>
-          </TouchableOpacity>
-          
-          <TouchableOpacity 
-            style={styles.quickAccessItem}
-            onPress={() => navigateTo('TestResults')}
-          >
-            <View style={[styles.iconContainer, { backgroundColor: '#E6FFF0' }]}>
-              <Ionicons name="flask" size={24} color="#2ECC71" />
-            </View>
-            <Text style={styles.quickAccessText}>Test Results</Text>
-          </TouchableOpacity>
-          
-          <TouchableOpacity 
-            style={styles.quickAccessItem}
-            onPress={() => navigateTo('EmergencyInfo')}
-          >
-            <View style={[styles.iconContainer, { backgroundColor: '#FFE6E6' }]}>
-              <Ionicons name="alert-circle" size={24} color="#E74C3C" />
-            </View>
-            <Text style={styles.quickAccessText}>Emergency Info</Text>
-          </TouchableOpacity>
+          <QuickAccessItem icon="document-text" color="#4A80F0" bg="#E6F2FF" label="Health Records" onPress={() => navigateTo('HealthRecords')} />
+          <QuickAccessItem icon="calendar" color="#FF8C42" bg="#FFF0E6" label="Visit History" onPress={() => navigateTo('VisitHistory')} />
+          <QuickAccessItem icon="flask" color="#2ECC71" bg="#E6FFF0" label="Test Results" onPress={() => navigateTo('TestResults')} />
+          <QuickAccessItem icon="alert-circle" color="#E74C3C" bg="#FFE6E6" label="Emergency Info" onPress={() => navigateTo('EmergencyInfo')} />
         </>
       );
     }
   };
 
-  // Render different recent activity items based on user role
   const renderRecentActivity = () => {
     if (userType === 'doctor') {
       return (
         <>
-          <View style={styles.activityCard}>
-            <View style={styles.activityIconContainer}>
-              <Ionicons name="person" size={20} color="#4A80F0" />
-            </View>
-            <View style={styles.activityContent}>
-              <Text style={styles.activityTitle}>New Patient: Sarah Johnson</Text>
-              <Text style={styles.activityDate}>Added on June 15, 2025</Text>
-            </View>
-            <Ionicons name="chevron-forward" size={20} color="#A0A0A0" />
-          </View>
-          
-          <View style={styles.activityCard}>
-            <View style={styles.activityIconContainer}>
-              <Ionicons name="document-text" size={20} color="#FF8C42" />
-            </View>
-            <View style={styles.activityContent}>
-              <Text style={styles.activityTitle}>Updated Medical Records</Text>
-              <Text style={styles.activityDate}>Added on June 10, 2025</Text>
-            </View>
-            <Ionicons name="chevron-forward" size={20} color="#A0A0A0" />
-          </View>
+          <ActivityItem icon="person" color="#4A80F0" title="New Patient: Sarah Johnson" date="June 15, 2025" />
+          <ActivityItem icon="document-text" color="#FF8C42" title="Updated Medical Records" date="June 10, 2025" />
         </>
       );
     } else if (userType === 'admin') {
       return (
         <>
-          <View style={styles.activityCard}>
-            <View style={styles.activityIconContainer}>
-              <Ionicons name="person-add" size={20} color="#4A80F0" />
-            </View>
-            <View style={styles.activityContent}>
-              <Text style={styles.activityTitle}>New Doctor Registration</Text>
-              <Text style={styles.activityDate}>Added on June 15, 2025</Text>
-            </View>
-            <Ionicons name="chevron-forward" size={20} color="#A0A0A0" />
-          </View>
-          
-          <View style={styles.activityCard}>
-            <View style={styles.activityIconContainer}>
-              <Ionicons name="shield" size={20} color="#FF8C42" />
-            </View>
-            <View style={styles.activityContent}>
-              <Text style={styles.activityTitle}>System Security Update</Text>
-              <Text style={styles.activityDate}>Added on June 10, 2025</Text>
-            </View>
-            <Ionicons name="chevron-forward" size={20} color="#A0A0A0" />
-          </View>
+          <ActivityItem icon="person-add" color="#4A80F0" title="New Doctor Registration" date="June 15, 2025" />
+          <ActivityItem icon="shield" color="#FF8C42" title="System Security Update" date="June 10, 2025" />
         </>
       );
     } else {
-      // Default patient view
       return (
         <>
-          <View style={styles.activityCard}>
-            <View style={styles.activityIconContainer}>
-              <Ionicons name="document-text" size={20} color="#4A80F0" />
-            </View>
-            <View style={styles.activityContent}>
-              <Text style={styles.activityTitle}>Blood Test Results</Text>
-              <Text style={styles.activityDate}>Added on June 15, 2025</Text>
-            </View>
-            <Ionicons name="chevron-forward" size={20} color="#A0A0A0" />
-          </View>
-          
-          <View style={styles.activityCard}>
-            <View style={styles.activityIconContainer}>
-              <Ionicons name="calendar" size={20} color="#FF8C42" />
-            </View>
-            <View style={styles.activityContent}>
-              <Text style={styles.activityTitle}>Dr. Smith Appointment</Text>
-              <Text style={styles.activityDate}>Added on June 10, 2025</Text>
-            </View>
-            <Ionicons name="chevron-forward" size={20} color="#A0A0A0" />
-          </View>
+          <ActivityItem icon="document-text" color="#4A80F0" title="Blood Test Results" date="June 15, 2025" />
+          <ActivityItem icon="calendar" color="#FF8C42" title="Dr. Smith Appointment" date="June 10, 2025" />
         </>
       );
     }
@@ -256,126 +88,114 @@ export default function HomeScreen() {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView contentContainerStyle={styles.scrollContainer}>
-        {/* Header */}
         <View style={styles.header}>
           <View>
             <Text style={styles.welcomeText}>{welcomeMessage}</Text>
-            <Text style={styles.appTitle}>
-              {userType === 'patient' ? 'MediVault' : `Hello, ${userName}`}
-            </Text>
+            <Text style={styles.appTitle}>{userType === 'patient' ? 'MediVault' : `Hello, ${userName}`}</Text>
           </View>
-          <TouchableOpacity 
-            style={styles.profileButton}
-            onPress={() => navigateTo('Profile')}
-          >
+          <TouchableOpacity onPress={() => navigateTo('Profile')}>
             <Ionicons name="person-circle" size={40} color={
-              userType === 'doctor' ? '#FF8C42' : 
-              userType === 'admin' ? '#2ECC71' : 
-              '#4A80F0'
-            } />
+              userType === 'doctor' ? '#005D8F' :
+              userType === 'admin' ? '#2ECC71' :
+              '#17C3B2'} />
           </TouchableOpacity>
         </View>
-        
-        {/* Quick Access Section */}
+
         <View style={styles.quickAccessSection}>
           <Text style={styles.sectionTitle}>Quick Access</Text>
           <View style={styles.quickAccessGrid}>
             {renderQuickAccessItems()}
           </View>
         </View>
-        
-        {/* Recent Activity Section */}
+
         <View style={styles.recentSection}>
           <Text style={styles.sectionTitle}>Recent Activity</Text>
           {renderRecentActivity()}
         </View>
-        
-        {/* Tips Section - Only show for patients */}
+
         {userType === 'patient' && (
           <View style={styles.tipsSection}>
             <Text style={styles.sectionTitle}>Health Tips</Text>
-            <View style={styles.tipCard}>
-              <Text style={styles.tipTitle}>Stay Hydrated</Text>
-              <Text style={styles.tipText}>
-                Remember to drink at least 8 glasses of water daily to maintain optimal health.
-              </Text>
-            </View>
+            <TipCard title="Stay Hydrated" text="Drink at least 8 glasses of water daily to maintain optimal health." color="#17C3B2" />
           </View>
         )}
-        
-        {/* System Status - Only show for admins */}
+
         {userType === 'admin' && (
           <View style={styles.tipsSection}>
             <Text style={styles.sectionTitle}>System Status</Text>
-            <View style={[styles.tipCard, { backgroundColor: '#2ECC71' }]}>
-              <Text style={styles.tipTitle}>All Systems Operational</Text>
-              <Text style={styles.tipText}>
-                Database and authentication services are running normally. Last backup: 2 hours ago.
-              </Text>
-            </View>
+            <TipCard title="All Systems Operational" text="Database and authentication services are running normally. Last backup: 2 hours ago." color="#2ECC71" />
           </View>
         )}
-        
-        {/* Upcoming Appointments - Only show for doctors */}
+
         {userType === 'doctor' && (
           <View style={styles.tipsSection}>
             <Text style={styles.sectionTitle}>Upcoming Appointments</Text>
-            <View style={[styles.tipCard, { backgroundColor: '#FF8C42' }]}>
-              <Text style={styles.tipTitle}>Next: Sarah Johnson</Text>
-              <Text style={styles.tipText}>
-                Annual checkup scheduled for tomorrow at 10:00 AM. Patient has uploaded new test results.
-              </Text>
-            </View>
+            <TipCard title="Next: Sarah Johnson" text="Annual checkup scheduled for tomorrow at 10:00 AM." color="#005D8F" />
           </View>
         )}
       </ScrollView>
-      
+
       {/* Bottom Navigation */}
       <View style={styles.bottomNav}>
-        <TouchableOpacity style={styles.navItem}>
-          <Ionicons name="home" size={24} color={
-            userType === 'doctor' ? '#FF8C42' : 
-            userType === 'admin' ? '#2ECC71' : 
-            '#4A80F0'
-          } />
-          <Text style={[styles.navText, styles.activeNavText, {
-            color: userType === 'doctor' ? '#FF8C42' : 
-                  userType === 'admin' ? '#2ECC71' : 
-                  '#4A80F0'
-          }]}>Home</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity 
-          style={styles.navItem}
-          onPress={() => navigateTo(
-            userType === 'doctor' ? 'PatientList' :
-            userType === 'admin' ? 'UserManagement' :
-            'UploadRecord'
-          )}
-        >
-          <Ionicons name={
-            userType === 'doctor' ? 'people' :
-            userType === 'admin' ? 'people' :
-            'add-circle'
-          } size={24} color="#A0A0A0" />
-          <Text style={styles.navText}>{
-            userType === 'doctor' ? 'Patients' :
-            userType === 'admin' ? 'Users' :
-            'Upload'
-          }</Text>
-        </TouchableOpacity>
-        
-        <TouchableOpacity 
-          style={styles.navItem}
-          onPress={() => navigateTo('Settings')}
-        >
-          <Ionicons name="settings-outline" size={24} color="#A0A0A0" />
-          <Text style={styles.navText}>Settings</Text>
-        </TouchableOpacity>
+        <NavItem icon="home" label="Home" active color={
+          userType === 'doctor' ? '#005D8F' :
+          userType === 'admin' ? '#2ECC71' :
+          '#17C3B2'
+        } />
+        <NavItem icon={
+          userType === 'doctor' || userType === 'admin' ? 'people' : 'add-circle'
+        } label={
+          userType === 'doctor' ? 'Patients' :
+          userType === 'admin' ? 'Users' : 'Upload'
+        } onPress={() => navigateTo(
+          userType === 'doctor' ? 'PatientList' :
+          userType === 'admin' ? 'UserManagement' : 'UploadRecord'
+        )} />
+        <NavItem icon="settings-outline" label="Settings" onPress={() => navigateTo('Settings')} />
       </View>
     </SafeAreaView>
   );
 }
+
+// Reusable Components
+
+const QuickAccessItem = ({ icon, color, bg, label, onPress }) => (
+  <TouchableOpacity style={styles.quickAccessItem} onPress={onPress}>
+    <View style={[styles.iconContainer, { backgroundColor: bg }]}>
+      <Ionicons name={icon} size={24} color={color} />
+    </View>
+    <Text style={styles.quickAccessText}>{label}</Text>
+  </TouchableOpacity>
+);
+
+const ActivityItem = ({ icon, color, title, date }) => (
+  <View style={styles.activityCard}>
+    <View style={[styles.activityIconContainer, { backgroundColor: '#F0F5FF' }]}>
+      <Ionicons name={icon} size={20} color={color} />
+    </View>
+    <View style={styles.activityContent}>
+      <Text style={styles.activityTitle}>{title}</Text>
+      <Text style={styles.activityDate}>Added on {date}</Text>
+    </View>
+    <Ionicons name="chevron-forward" size={20} color="#A0A0A0" />
+  </View>
+);
+
+const TipCard = ({ title, text, color }) => (
+  <View style={[styles.tipCard, { backgroundColor: color }]}>
+    <Text style={styles.tipTitle}>{title}</Text>
+    <Text style={styles.tipText}>{text}</Text>
+  </View>
+);
+
+const NavItem = ({ icon, label, onPress, active, color = '#A0A0A0' }) => (
+  <TouchableOpacity style={styles.navItem} onPress={onPress}>
+    <Ionicons name={icon} size={24} color={color} />
+    <Text style={[styles.navText, active && { color }]}>{label}</Text>
+  </TouchableOpacity>
+);
+
+// Styles
 
 const styles = StyleSheet.create({
   container: {
@@ -384,7 +204,7 @@ const styles = StyleSheet.create({
   },
   scrollContainer: {
     padding: 16,
-    paddingBottom: 80,
+    paddingBottom: 100,
   },
   header: {
     flexDirection: 'row',
@@ -400,9 +220,6 @@ const styles = StyleSheet.create({
     fontSize: 28,
     fontWeight: 'bold',
     color: '#333',
-  },
-  profileButton: {
-    padding: 4,
   },
   quickAccessSection: {
     marginBottom: 24,
@@ -425,10 +242,6 @@ const styles = StyleSheet.create({
     padding: 16,
     marginBottom: 16,
     alignItems: 'center',
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 3,
     elevation: 2,
   },
   iconContainer: {
@@ -444,6 +257,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#333',
     marginTop: 8,
+    textAlign: 'center',
   },
   recentSection: {
     marginBottom: 24,
@@ -455,17 +269,12 @@ const styles = StyleSheet.create({
     borderRadius: 12,
     padding: 16,
     marginBottom: 12,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.05,
-    shadowRadius: 3,
     elevation: 2,
   },
   activityIconContainer: {
     width: 40,
     height: 40,
     borderRadius: 20,
-    backgroundColor: '#F0F5FF',
     justifyContent: 'center',
     alignItems: 'center',
     marginRight: 12,
@@ -487,13 +296,8 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   tipCard: {
-    backgroundColor: '#4A80F0',
     borderRadius: 12,
     padding: 20,
-    shadowColor: '#4A80F0',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 3,
     elevation: 2,
   },
   tipTitle: {
@@ -518,8 +322,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    borderTopWidth: 1,
-    borderTopColor: '#F0F0F0',
+    borderTopWidth: 0.5,
+    borderTopColor: '#ccc',
     paddingBottom: 10,
   },
   navItem: {
@@ -530,8 +334,5 @@ const styles = StyleSheet.create({
     marginTop: 4,
     color: '#A0A0A0',
   },
-  activeNavText: {
-    color: '#4A80F0',
-    fontWeight: '500',
-  },
 });
+
