@@ -66,7 +66,7 @@ export default function UploadRecordScreen() {
             style={styles.backButton}
             onPress={() => navigation.goBack()}
           >
-            <Ionicons name="arrow-back" size={24} color="#333" />
+            <Ionicons name="arrow-back" size={24} color="#17C3B2" />
           </TouchableOpacity>
           <Text style={styles.headerTitle}>Upload Health Record</Text>
           <View style={{ width: 40 }} />
@@ -139,7 +139,7 @@ export default function UploadRecordScreen() {
                     <Ionicons 
                       name={category.icon} 
                       size={24} 
-                      color={selectedCategory === category.id ? 'white' : '#4A80F0'} 
+                      color={selectedCategory === category.id ? 'white' : '#17C3B2'} 
                     />
                   </View>
                   <Text 
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontSize: 20,
     fontWeight: 'bold',
-    color: '#333',
+    color: '#17C3B2',
   },
   scrollContainer: {
     padding: 16,
@@ -300,7 +300,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   selectedCategoryButton: {
-    borderColor: '#4A80F0',
+    borderColor: '#17C3B2',
     backgroundColor: '#F0F5FF',
   },
   categoryIconContainer: {
@@ -313,7 +313,7 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   selectedCategoryIconContainer: {
-    backgroundColor: '#4A80F0',
+    backgroundColor: '#17C3B2',
   },
   categoryText: {
     fontSize: 14,
@@ -321,7 +321,7 @@ const styles = StyleSheet.create({
     color: '#666',
   },
   selectedCategoryText: {
-    color: '#4A80F0',
+    color: '#17C3B2',
   },
   fileUploadContainer: {
     backgroundColor: 'white',

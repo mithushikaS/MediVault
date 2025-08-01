@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
     color: '#333',
   },
   resetButton: {
-    backgroundColor: '#4A80F0',
+    backgroundColor: '#17C3B2',
     borderRadius: 12,
     height: 50,
     justifyContent: 'center',

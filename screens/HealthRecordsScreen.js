@@ -105,7 +105,7 @@ export default function HealthRecordsScreen() {
         <Ionicons 
           name={item.fileType === 'PDF' ? 'document-text' : 'image'} 
           size={24} 
-          color="#4A80F0" 
+          color="#17C3B2" 
         />
       </View>
       <View style={styles.recordContent}>
@@ -135,7 +135,7 @@ export default function HealthRecordsScreen() {
         </TouchableOpacity>
         <Text style={styles.headerTitle}>Health Records</Text>
         <TouchableOpacity style={styles.optionsButton}>
-          <Ionicons name="ellipsis-vertical" size={24} color="#333" />
+          <Ionicons name="ellipsis-vertical" size={24} color="#17C3B2" />
         </TouchableOpacity>
       </View>
       
@@ -286,7 +286,7 @@ const styles = StyleSheet.create({
     marginRight: 8,
   },
   activeCategoryButton: {
-    backgroundColor: '#4A80F0',
+    backgroundColor: '#17C3B2',
   },
   categoryText: {
     color: '#666',
@@ -374,10 +374,10 @@ const styles = StyleSheet.create({
     width: 60,
     height: 60,
     borderRadius: 30,
-    backgroundColor: '#4A80F0',
+    backgroundColor: '#17C3B2',
     justifyContent: 'center',
     alignItems: 'center',
-    shadowColor: '#4A80F0',
+    shadowColor: '#17C3B2',
     shadowOffset: { width: 0, height: 4 },
     shadowOpacity: 0.3,
     shadowRadius: 8,

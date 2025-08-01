@@ -100,7 +100,7 @@ Group #: ${emergencyInfo.insuranceInfo.groupNumber}
           style={styles.shareButton}
           onPress={handleShareInfo}
         >
-          <Ionicons name="share-outline" size={24} color="#4A80F0" />
+          <Ionicons name="share-outline" size={24} color="#17C3B2" />
         </TouchableOpacity>
       </View>
       
@@ -179,7 +179,7 @@ Group #: ${emergencyInfo.insuranceInfo.groupNumber}
                 {index > 0 && <View style={styles.divider} />}
                 <View style={styles.medicationRow}>
                   <View style={styles.medicationIconContainer}>
-                    <Ionicons name="medical" size={20} color="#4A80F0" />
+                    <Ionicons name="medical" size={20} color="#17C3B2" />
                   </View>
                   <View style={styles.medicationInfo}>
                     <Text style={styles.medicationName}>{medication.name}</Text>
@@ -201,7 +201,7 @@ Group #: ${emergencyInfo.insuranceInfo.groupNumber}
                 {index > 0 && <View style={styles.divider} />}
                 <View style={styles.contactRow}>
                   <View style={styles.contactIconContainer}>
-                    <Ionicons name="person" size={20} color="#4A80F0" />
+                    <Ionicons name="person" size={20} color="#17C3B2" />
                   </View>
                   <View style={styles.contactInfo}>
                     <Text style={styles.contactName}>{contact.name}</Text>
@@ -223,7 +223,7 @@ Group #: ${emergencyInfo.insuranceInfo.groupNumber}
           <View style={styles.infoCard}>
             <View style={styles.providerRow}>
               <View style={styles.providerIconContainer}>
-                <Ionicons name="medkit" size={20} color="#4A80F0" />
+                <Ionicons name="medkit" size={20} color="#17C3B2" />
               </View>
               <View style={styles.providerInfo}>
                 <Text style={styles.providerName}>{emergencyInfo.primaryPhysician.name}</Text>
@@ -398,7 +398,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F0F5FF',
   },
   conditionTagText: {
-    color: '#4A80F0',
+    color: '#17C3B2',
     fontWeight: '500',
   },
   medicationRow: {
@@ -528,7 +528,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#4A80F0',
+    backgroundColor: '#17C3B2',
     borderRadius: 12,
     padding: 16,
     marginTop: 8,

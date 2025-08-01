@@ -118,7 +118,7 @@ export default function LoginScreen() {
               </TouchableOpacity>
             </View>
             
-            <TouchableOpacity 
+            {/* <TouchableOpacity 
               style={styles.forgotPassword}
               onPress={() => {
                 // @ts-ignore
@@ -126,7 +126,28 @@ export default function LoginScreen() {
               }}
             >
               <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+            </TouchableOpacity> */}
+            <TouchableOpacity 
+              style={styles.forgotPassword}
+              onPress={() => {
+                // @ts-ignore
+                navigation.navigate('ForgotPassword', { userType });
+              }}
+            >
+              <Text
+                style={[
+                  styles.forgotPasswordText,
+                  userType === 'doctor'
+                    ? { color: '#005D8F' }
+                    : userType === 'admin'
+                    ? { color: '#2ECC71' }
+                    : { color: '#17C3B2' } // patient or default
+                ]}
+              >
+                Forgot Password?
+              </Text>
             </TouchableOpacity>
+
             
             <TouchableOpacity 
               style={[
@@ -272,10 +293,14 @@ const styles = StyleSheet.create({
     marginBottom: 24,
   },
   forgotPasswordText: {
-    color: '#17C3B2',
-    fontSize: 14,
-    fontWeight: '500',
-  },
+  fontSize: 14,
+  fontWeight: '500',
+},
+  // forgotPasswordText: {
+  //   color: '#17C3B2',
+  //   fontSize: 14,
+  //   fontWeight: '500',
+  // },
   loginButton: {
     backgroundColor: '#17C3B2', // Patient default
     borderRadius: 14,
